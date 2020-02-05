@@ -7,28 +7,36 @@ import PostHeader from "./PostHeader";
 
 import "./Posts.css";
 
-const Post = ({ post }) => {
+const Post = ({
+    post: { likes, username, thumbnailUrl, imageUrl, comments }
+}) => {
     // set up state for the likes
-    const [postLikes, setPostLikes] = useState(post.likes);
+    const [postLikes, setPostLikes] = useState(likes);
     console.log(postLikes);
 
     return (
         <div className="post-border">
-            <PostHeader
-                username={post.username}
-                thumbnailUrl={post.thumbnailUrl}
-            />
+            <PostHeader username={username} thumbnailUrl={thumbnailUrl} />
             <div className="post-image-wrapper">
                 <img
                     alt="post thumbnail"
                     className="post-image"
-                    src={post.imageUrl}
+                    src={imageUrl}
                 />
             </div>
-            <LikeSection likes={postLikes} setPostLikes={setPostLikes} />
-            <CommentSection postId={post.imageUrl} comments={post.comments} />
+            <LikeSection postLikes={postLikes} setPostLikes={setPostLikes} />
+            <CommentSection postId={imageUrl} comments={comments} />
         </div>
     );
 };
 
 export default Post;
+
+// let arr = [1, 2, 3]
+// let arr2 = [5, 6, 7]
+
+// let num = 4
+
+// arr.push(num)
+
+// arr = [...arr, num, ...arr2] // [1,2,3,4,5,6,7]
