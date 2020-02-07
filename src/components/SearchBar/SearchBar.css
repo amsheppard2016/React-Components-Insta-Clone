@@ -34,3 +34,16 @@
     width: 100px;
     height: 40px;
 }
+p {
+    font-size: 2.5rem;
+    margin-left: 5%;
+    margin-top: -2%;
+}
+.instagram-logo {
+    width: 150px;
+    height: 50px;
+}
+.image-wrapper {
+    height: 50px;
+    display: flex;
+}
